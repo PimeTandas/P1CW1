@@ -117,8 +117,10 @@ public abstract class Vehicle implements Actor
      */
     public void setTargetLocation(Location location)
     {
-        if(location != null) {
-            targetLocation = location;
+        if(this.location != null) {
+            throw new IllegalStateException("Taxi already has a target location.");
+        }
+            this.targetLocation = location;
         }
         else {
             throw new NullPointerException();
