@@ -21,12 +21,8 @@ public class Passenger implements DrawableItem {
      * @throws IllegalArgumentException If pickup and destination locations are the same.
      */
     public Passenger(Location pickup, Location destination) {
-        if (pickup == null) {
-            throw new NullPointerException("Pickup location cannot be null.");
-        }
-        if (destination == null) {
-            throw new NullPointerException("Destination location cannot be null.");
-        }
+        assert pickupLocation != null : "Pickup location cannot be null";
+        assert destinationLocation != null : "Destination location cannot be null";
         if (pickup.equals(destination)) {
             throw new IllegalArgumentException("Pickup and destination locations cannot be the same.");
         }
