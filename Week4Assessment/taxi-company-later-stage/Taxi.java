@@ -33,7 +33,16 @@ public class Taxi extends Vehicle implements DrawableItem {
     public void act() {
         Location target = getTargetLocation();
         if (target != null) {
-            // Find where to move to next.
+            // Increase travel time if we have an assigned passenger
+            // and are not already at our destination
+            if (!(target.toString().equals(getLocation().toString()))){
+                if (passenger != null) {
+                    Statistics.incrementTotalTimeSpentTravellingToDestination();
+                } else {
+                    Statistics.incrementTotalTimeSpentTravellingToPickup();
+                }
+            }
+            // Find where to move to next
             Location next = getLocation().nextLocation(target);
             setLocation(next);
             if (next.equals(target)) {

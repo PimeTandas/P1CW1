@@ -33,6 +33,11 @@ public class Shuttle extends Vehicle
      */
     public void act()
     {
+        /**
+         *  Once this code has been created, if the shuttle had an assigned
+         *  passenger and was moving towards a target location,
+         *  the code would call: Statistics.incrementTotalTimeSpentTravelling()
+         */
     }
 
     /**
